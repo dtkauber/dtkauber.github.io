@@ -1,6 +1,7 @@
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import ExperienceMap from "../components/ExperienceMap";
+import GithubActivity from "../components/GithubActivity";
 import Projects from "../components/Projects";
 import YankeeOfTheDay from "../components/YankeeOfTheDay";
 
@@ -20,6 +21,17 @@ export default function HomePage() {
             </a>
             <a href="#projects" className="cursor-pointer transition hover:text-white">
               Projects
+            </a>
+            <a href="#activity" className="cursor-pointer transition hover:text-white">
+              Activity
+            </a>
+            <a
+              href={`${import.meta.env.BASE_URL}resume.pdf`}
+              target="_blank"
+              rel="noreferrer"
+              className="cursor-pointer transition hover:text-white"
+            >
+              Resume
             </a>
           </nav>
         </div>
@@ -150,6 +162,16 @@ export default function HomePage() {
               </p>
               <div className="mt-6">
                 <Projects/>
+              </div>
+            </div>
+
+            <div id="activity">
+              <h2 className="text-3xl font-semibold text-white">Activity</h2>
+              <p className="mt-2 text-sm text-slate-500">
+                What I've been shipping lately on GitHub.
+              </p>
+              <div className="mt-6">
+                <GithubActivity />
               </div>
             </div>
           </section>

@@ -1,39 +1,40 @@
 const PROJECTS = [
   {
     id: 1,
+    title: "Fantasy Hockey Analytics Platform",
+    icon: "🏒",
+    tags: ["React", "TypeScript", "FastAPI", "PostgreSQL", "OpenAI API"],
+    description:
+      "Full-stack platform ingesting 1,300+ NHL games into a custom scoring engine and Postgres schema. Built empirical-Bayes projections and a VORP/VONA draft engine, with a chatbot shipped via the OpenAI API.",
+    github: "https://github.com/dtkauber/fantasy-hockey",
+  },
+  {
+    id: 2,
+    title: "Serverless Crypto Market Data Pipeline",
+    icon: "📈",
+    tags: ["Python", "AWS Lambda", "S3", "EventBridge", "Streamlit"],
+    description:
+      "Serverless AWS ETL pipeline ingesting crypto market data into S3 via chained Lambda functions. Queried the data with AWS Glue and Athena, and visualized trends in a Streamlit dashboard.",
+    github: "https://github.com/dtkauber/crypto-pipeline",
+    demo: "https://crypto-pipeline-7ytvjepkjy7gqtmzf5tv4p.streamlit.app/",
+  },
+  {
+    id: 3,
     title: "NBA Defensive Physicality Score",
     icon: "🏀",
     tags: ["Python", "NumPy", "Matplotlib", "Scikit-learn"],
     description:
       "Built a Defensive Physicality Score from NBA tracking data to evaluate defensive success and physicality. Created classification models reaching 70%+ accuracy and .70+ ROC AUC.",
-    github: null,
+    github: "https://github.com/dtkauber/nba-fas-MVP-pred-model",
   },
   {
-    id: 2,
+    id: 4,
     title: "Personal Website",
     icon: "💻",
     tags: ["React", "JavaScript", "Tailwind CSS"],
     description:
       "Designed and deployed this portfolio site to showcase my background, projects, and technical skills — including the interactive experience map you're looking at now.",
-    github: "https://github.com/dtkauber/personal-website",
-  },
-  {
-    id: 3,
-    title: "Dungeon Crawler Game",
-    icon: "⚔️",
-    tags: ["Java", "JavaFX", "CSS"],
-    description:
-      "A tile-based dungeon crawler built with JavaFX, featuring custom rendering, game logic, and an interactive UI.",
-    github: null,
-  },
-  {
-    id: 4,
-    title: "EPL Match Predictor",
-    icon: "⚽",
-    tags: ["Python", "Pandas", "Scikit-learn"],
-    description:
-      "A Random Forest Classifier that predicts English Premier League match outcomes with a 70% success rate.",
-    github: "https://github.com/dtkauber/Predicting-EPL-Matches-using-Python-and-Machine-Learning",
+    github: "https://github.com/dtkauber/dtkauber.github.io",
   },
 ];
 
@@ -60,15 +61,29 @@ function ProjectCard({ project }) {
 
         <div className="absolute inset-0 flex flex-col justify-between rounded-2xl border border-blue-400/40 bg-slate-800 p-6 [transform:rotateY(180deg)] [backface-visibility:hidden]">
           <p className="text-sm leading-6 text-slate-300">{project.description}</p>
-          {project.github ? (
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noreferrer"
-              className="cursor-pointer text-sm font-medium text-blue-300 transition hover:text-blue-200"
-            >
-              → View on GitHub
-            </a>
+          {project.github || project.demo ? (
+            <div className="flex flex-wrap gap-x-4 gap-y-1">
+              {project.demo && (
+                <a
+                  href={project.demo}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="cursor-pointer text-sm font-medium text-blue-300 transition hover:text-blue-200"
+                >
+                  → Live Demo
+                </a>
+              )}
+              {project.github && (
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="cursor-pointer text-sm font-medium text-blue-300 transition hover:text-blue-200"
+                >
+                  → View on GitHub
+                </a>
+              )}
+            </div>
           ) : (
             <span className="text-xs text-slate-500">Description only</span>
           )}
