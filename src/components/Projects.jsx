@@ -20,11 +20,11 @@ const PROJECTS = [
   },
   {
     id: 3,
-    title: "NBA Defensive Physicality Score",
-    icon: "🏀",
-    tags: ["Python", "NumPy", "Matplotlib", "Scikit-learn"],
+    title: "NBA MVP Prediction Model",
+    icon: "🏆",
+    tags: ["Python", "Pandas", "Scikit-learn", "nba_api"],
     description:
-      "Built a Defensive Physicality Score from NBA tracking data to evaluate defensive success and physicality. Created classification models reaching 70%+ accuracy and .70+ ROC AUC.",
+      "Trained linear, logistic, and Random Forest models on 15 seasons of NBA player stats via nba_api to predict MVP voting. Season-level cross-validation ranks the true MVP in the top 3 100% of the time.",
     github: "https://github.com/dtkauber/nba-fas-MVP-pred-model",
   },
   {
