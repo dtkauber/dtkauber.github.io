@@ -1,8 +1,11 @@
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
+import ClockDate from "../components/ClockDate";
+import CommandPalette from "../components/CommandPalette";
 import ExperienceMap from "../components/ExperienceMap";
 import GithubActivity from "../components/GithubActivity";
 import Projects from "../components/Projects";
+import WeatherWidget from "../components/WeatherWidget";
 import YankeeOfTheDay from "../components/YankeeOfTheDay";
 
 export default function HomePage() {
@@ -11,29 +14,33 @@ export default function HomePage() {
   return (
     <div className="min-h-screen w-full bg-slate-950 text-slate-100">
       <header className="w-full border-b border-slate-800">
-        <div className="mx-auto flex max-w-6xl justify-end px-8 py-6">
-          <nav className="flex gap-8 text-lg text-slate-300">
-            <a href="#about" className="cursor-pointer transition hover:text-white">
-              About
-            </a>
-            <a href="#experience" className="cursor-pointer transition hover:text-white">
-              Experience
-            </a>
-            <a href="#projects" className="cursor-pointer transition hover:text-white">
-              Projects
-            </a>
-            <a href="#activity" className="cursor-pointer transition hover:text-white">
-              Activity
-            </a>
-            <a
-              href={`${import.meta.env.BASE_URL}resume.pdf`}
-              target="_blank"
-              rel="noreferrer"
-              className="cursor-pointer transition hover:text-white"
-            >
-              Resume
-            </a>
-          </nav>
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-8 py-6">
+          <ClockDate />
+          <div className="flex flex-wrap items-center gap-6">
+            <nav className="flex gap-8 text-lg text-slate-300">
+              <a href="#about" className="cursor-pointer transition hover:text-white">
+                About
+              </a>
+              <a href="#experience" className="cursor-pointer transition hover:text-white">
+                Experience
+              </a>
+              <a href="#projects" className="cursor-pointer transition hover:text-white">
+                Projects
+              </a>
+              <a href="#activity" className="cursor-pointer transition hover:text-white">
+                Activity
+              </a>
+              <a
+                href={`${import.meta.env.BASE_URL}resume.pdf`}
+                target="_blank"
+                rel="noreferrer"
+                className="cursor-pointer transition hover:text-white"
+              >
+                Resume
+              </a>
+            </nav>
+            <CommandPalette />
+          </div>
         </div>
       </header>
 
@@ -89,6 +96,7 @@ export default function HomePage() {
                 Pleasantville, NY | Chapel Hill, NC
               </p>
               <YankeeOfTheDay />
+              <WeatherWidget />
             </div>
           </aside>
 
